@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="triangleParent" class="com.mohit.spring.Triangle" abstract="true">
+        <property name="pointA" ref="pointA"/>
+    </bean>
+
+    <bean id="triangle" class="com.mohit.spring.Triangle" parent="triangleParent">
+        <property name="pointB" ref="pointB"/>
+        <property name="pointC" ref="pointC"/>
+    </bean>
+
+    <bean id="triangle1" class="com.mohit.spring.Triangle" parent="triangleParent">
+        <property name="pointB" ref="pointB"/>
+    </bean>
+
+    <bean id="pointA" class="com.mohit.spring.Point">
+        <property name="width" value="${pointA.pointX}"/>
+        <property name="height" value="${pointA.pointY}"/>
+    </bean>
+
+    <bean id="pointB" class="com.mohit.spring.Point">
+        <property name="width" value="12"/>
+        <property name="height" value="15"/>
+    </bean>
+
+    <bean id="pointC" class="com.mohit.spring.Point">
+        <property name="width" value="22"/>
+        <property name="height" value="25"/>
+    </bean>
+
+    <!--<bean class="com.mohit.spring.DisplayBeanPostProcessor"/>-->
+    <!--<bean class="com.mohit.spring.OnBeanFactoryProcessor"/>-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="pointConfig.properties"/>
+    </bean>
+</beans>
