@@ -32,8 +32,8 @@
         <property name="height" value="25"/>
     </bean>
 
-    <!--<bean class="com.mohit.spring.DisplayBeanPostProcessor"/>-->
-    <!--<bean class="com.mohit.spring.OnBeanFactoryProcessor"/>-->
+    <bean class="com.mohit.spring.DisplayBeanPostProcessor"/>
+    <bean class="com.mohit.spring.OnBeanFactoryProcessor"/>
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations" value="pointConfig.properties"/>
     </bean>
